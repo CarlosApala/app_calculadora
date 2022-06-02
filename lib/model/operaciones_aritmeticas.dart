@@ -1,34 +1,35 @@
+import 'package:app_calculadora/bloc/addnumero_bloc.dart';
 import 'package:app_calculadora/helpers/presicion_numeros.dart';
-import 'package:app_calculadora/model/calculadora.dart';
 
-class OperacionesAritmeticas {
-  final TipoOperador op;
-  OperacionesAritmeticas({required this.op});
+abstract class OperacionesAritmeticas {
+  OperacionesAritmeticas();
+
   PrecisionNumeros precisionNumeros = PrecisionNumeros(precision: 7);
 
-  double operacion(dynamic numerador, dynamic numOperador) {
-    switch (op) {
-      case TipoOperador.multi:
-        return mulitplicacion(numerador, numOperador);
-      case TipoOperador.divi:
-        return division(numerador, numOperador);
-      case TipoOperador.suma:
-        return suma(numerador, numOperador);
+  void addNumero(String numero);
+  void deleteElementOperation();
+  void modifyValues({SetNumeroEvent? setevent, DefinirOperacion? definir});
 
-      case TipoOperador.resta:
-        return resta(numerador, numOperador);
+  double suma(String numerador, String multiplicador) {
+    String numDecimalAux =
+        numerador.substring(numerador.indexOf(".") + 1, numerador.length);
 
-      case TipoOperador.igual:
-        // TODO: Handle this case.
-        break;
-      case TipoOperador.add:
-        return numOperador;
-    }
-    return 0;
-  }
+    String numEntAux = numerador.substring(0, numerador.indexOf("."));
 
-  double suma(double numerador, double numOperador) {
-    return precisionNumeros.processPrecision(numerador + numOperador);
+    String multDecimalAux = multiplicador.substring(
+        multiplicador.indexOf(".") + 1, multiplicador.length);
+
+    String multEntAux = multiplicador.substring(0, multiplicador.indexOf("."));
+
+    String totalEnteroAux =
+        (double.parse(multEntAux) + double.parse(numEntAux)).toString();
+
+    String totalDecimAux =
+        (double.parse(numDecimalAux) + double.parse(multDecimalAux)).toString();
+    totalDecimAux =
+        "0.${totalDecimAux.substring(0, totalDecimAux.indexOf("."))}";
+
+    return (double.parse(totalEnteroAux) + double.parse(totalDecimAux));
   }
 
   double resta(double numerador, double numOperador) {

@@ -14,8 +14,8 @@ class DefinirOperacion extends AddnumeroEvent {
   DefinirOperacion({required this.operador});
 }
 
-class RealizarOperacionEvent extends AddnumeroEvent {}
+class RealizarOperacion extends AddnumeroEvent {}
 
-class RetrocederNumeroEvent extends AddnumeroEvent {}
+class DeleteElemetEvent extends AddnumeroEvent {}
 
 class DeleteNumeroEvent extends AddnumeroEvent {}

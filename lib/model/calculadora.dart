@@ -1,8 +1,8 @@
-import 'package:app_calculadora/model/operaciones_aritmeticas.dart';
+import 'package:app_calculadora/model/preparar_operacion.dart';
 
-enum TipoOperador { multi, divi, suma, resta, igual, add }
+enum TipoOperador { multi, divi, suma, resta, add, igual }
 
-class Calculadora extends OperacionesAritmeticas {
+class Calculadora {
   final String? numerador;
   final String? multiplicador;
   final String? residuo;
@@ -18,8 +18,7 @@ class Calculadora extends OperacionesAritmeticas {
       this.multiplicador,
       this.residuo,
       this.operacionVisual,
-      this.historial})
-      : super(op: operador!);
+      this.historial});
 
   Calculadora copyWith(
       {String? resultado,

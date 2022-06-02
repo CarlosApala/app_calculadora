@@ -12,8 +12,8 @@ class TecladoCalculadora extends StatelessWidget {
     return BlocBuilder<AddnumeroBloc, AddnumeroState>(
         builder: (context, state) {
       return Container(
-        padding: EdgeInsets.only(left: 10, right: 10),
-        color: Color.fromRGBO(23, 23, 28, 1),
+        padding: const EdgeInsets.only(left: 10, right: 10),
+        color: const Color.fromRGBO(23, 23, 28, 1),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -26,8 +26,8 @@ class TecladoCalculadora extends StatelessWidget {
                     numero: "BORRAR",
                     evento: DeleteNumeroEvent(),
                     style: TextStyle(color: Colors.orange)),
-                BotonCalculador(numero: "+/-"),
-                BotonCalculador(numero: "°/."),
+                const BotonCalculador(numero: "+/-"),
+                const BotonCalculador(numero: "°/."),
                 BotonCalculador(
                   numero: "div",
                   evento: DefinirOperacion(operador: TipoOperador.divi),
@@ -109,11 +109,11 @@ class TecladoCalculadora extends StatelessWidget {
                 ),
                 BotonCalculador(
                   icono: const Icon(Icons.backspace_outlined),
-                  evento: RetrocederNumeroEvent(),
+                  evento: DeleteElemetEvent(),
                 ),
                 BotonCalculador(
                   numero: "=",
-                  evento: RealizarOperacionEvent(),
+                  evento: RealizarOperacion(),
                   style: const TextStyle(fontSize: 28),
                 ),
               ],
