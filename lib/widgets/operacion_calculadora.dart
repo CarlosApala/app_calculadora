@@ -17,22 +17,28 @@ class OperacionCalculadora extends StatelessWidget {
           children: [
             Container(
               child: Text(
-                state.calculadora.multiplicador!,
+                state.calculadora.multiplicador == 0.0
+                    ? ""
+                    : state.calculadora.multiplicador.toString(),
                 style: st,
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 2),
+              padding: const EdgeInsets.symmetric(horizontal: 2),
               child: Text(
-                state.calculadora.operacionVisual!,
+                state.calculadora.operacionVisual != null
+                    ? state.calculadora.operacionVisual.toString()
+                    : "",
                 style: state.calculadora.operacionVisual == "-"
-                    ? TextStyle(fontSize: 40, color: Colors.white60)
+                    ? const TextStyle(fontSize: 40, color: Colors.white60)
                     : st,
               ),
             ),
             Container(
               child: Text(
-                state.calculadora.numerador!,
+                state.calculadora.numerador == 0.0
+                    ? ""
+                    : state.calculadora.numerador.toString(),
                 style: st,
               ),
             )

@@ -1,32 +1,33 @@
-import 'package:app_calculadora/model/preparar_operacion.dart';
-
-enum TipoOperador { multi, divi, suma, resta, add, igual }
+enum TipoOperador { multi, divi, suma, resta, add, igual, point }
 
 class Calculadora {
-  final String? numerador;
-  final String? multiplicador;
-  final String? residuo;
-  final String? resultado;
+  final double? numerador;
+  final double? multiplicador;
+  final double? residuo;
+  final double? resultado;
   final TipoOperador? operador;
   final String? operacionVisual;
+  final bool? point;
   final List<String>? historial;
 
   Calculadora(
       {this.resultado,
       this.operador,
       this.numerador,
+      this.point,
       this.multiplicador,
       this.residuo,
       this.operacionVisual,
       this.historial});
 
   Calculadora copyWith(
-      {String? resultado,
-      TipoOperador? operador,
-      String? numerador,
-      String? multiplicador,
-      String? residuo,
+      {TipoOperador? operador,
+      double? resultado,
+      double? numerador,
+      double? multiplicador,
+      double? residuo,
       String? operacionVisual,
+      bool? point,
       List<String>? historial}) {
     switch (operador) {
       case TipoOperador.multi:
@@ -51,6 +52,7 @@ class Calculadora {
         break;
     }
     return Calculadora(
+        point: point ?? point,
         historial: historial ?? this.historial,
         multiplicador: multiplicador ?? this.multiplicador,
         numerador: numerador ?? this.numerador,

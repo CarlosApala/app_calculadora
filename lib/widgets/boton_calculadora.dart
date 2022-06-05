@@ -1,5 +1,6 @@
 import 'package:app_calculadora/bloc/addnumero_bloc.dart';
 import 'package:app_calculadora/model/calculadora.dart';
+import 'package:app_calculadora/model/purificarDouble.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,6 +33,9 @@ class BotonCalculador extends StatelessWidget {
               ? () {}
               : () {
                   BlocProvider.of<AddnumeroBloc>(context).add(evento!);
+                  PurifcarDouble pur = PurifcarDouble();
+                  //pur.purificar("321.45", "3.15");
+                  pur.sustraerElement("54.34", ".");
                 },
           child: numero != ""
               ? Text(

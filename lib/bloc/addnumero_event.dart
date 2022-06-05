@@ -4,7 +4,7 @@ part of 'addnumero_bloc.dart';
 abstract class AddnumeroEvent {}
 
 class SetNumeroEvent extends AddnumeroEvent {
-  final String valor;
+  final double valor;
 
   SetNumeroEvent({required this.valor});
 }

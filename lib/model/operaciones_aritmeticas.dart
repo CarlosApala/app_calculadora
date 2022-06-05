@@ -6,41 +6,23 @@ abstract class OperacionesAritmeticas {
 
   PrecisionNumeros precisionNumeros = PrecisionNumeros(precision: 7);
 
-  void addNumero(String numero);
+  void addNumero(double numero);
   void deleteElementOperation();
-  void modifyValues({SetNumeroEvent? setevent, DefinirOperacion? definir});
+  void modifyValues({required DefinirOperacion? definir});
 
-  double suma(String numerador, String multiplicador) {
-    String numDecimalAux =
-        numerador.substring(numerador.indexOf(".") + 1, numerador.length);
-
-    String numEntAux = numerador.substring(0, numerador.indexOf("."));
-
-    String multDecimalAux = multiplicador.substring(
-        multiplicador.indexOf(".") + 1, multiplicador.length);
-
-    String multEntAux = multiplicador.substring(0, multiplicador.indexOf("."));
-
-    String totalEnteroAux =
-        (double.parse(multEntAux) + double.parse(numEntAux)).toString();
-
-    String totalDecimAux =
-        (double.parse(numDecimalAux) + double.parse(multDecimalAux)).toString();
-    totalDecimAux =
-        "0.${totalDecimAux.substring(0, totalDecimAux.indexOf("."))}";
-
-    return (double.parse(totalEnteroAux) + double.parse(totalDecimAux));
+  double suma(double numerador, double multiplicador) {
+    return numerador + multiplicador;
   }
 
   double resta(double numerador, double numOperador) {
-    return precisionNumeros.processPrecision(numOperador - numerador);
+    return numOperador - numerador;
   }
 
   double mulitplicacion(double numerador, double numOperador) {
-    return precisionNumeros.processPrecision(numerador * numOperador);
+    return numerador * numOperador;
   }
 
   double division(double numerador, double numOperador) {
-    return precisionNumeros.processPrecision(numOperador / numerador);
+    return numOperador / numerador;
   }
 }

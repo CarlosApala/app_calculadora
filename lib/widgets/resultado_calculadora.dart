@@ -9,11 +9,13 @@ class ResultadoCalculadora extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AddnumeroBloc, AddnumeroState>(builder: (_, state) {
       return Container(
-        color: Color.fromRGBO(23, 23, 28, 1),
+        color: const Color.fromRGBO(23, 23, 28, 1),
         alignment: Alignment.centerRight,
         child: Text(
-          "= ${state.calculadora.resultado}",
-          style: TextStyle(fontSize: 45, color: Colors.white),
+          state.calculadora.residuo != null
+              ? "= ${state.calculadora.resultado.toString()}"
+              : "=",
+          style: const TextStyle(fontSize: 45, color: Colors.white),
         ),
       );
     });

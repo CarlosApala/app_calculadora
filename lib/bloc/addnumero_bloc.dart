@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:app_calculadora/model/calculadora.dart';
 import 'package:app_calculadora/model/preparar_operacion.dart';
 import 'package:bloc/bloc.dart';
@@ -11,22 +13,24 @@ class AddnumeroBloc extends Bloc<AddnumeroEvent, AddnumeroState> {
   AddnumeroBloc()
       : super(CalculatorInitialState(
             lc: Calculadora(
-                multiplicador: "",
-                numerador: "",
+                point: false,
+                multiplicador: 0,
+                numerador: 0,
                 operador: TipoOperador.add,
                 operacionVisual: "",
-                residuo: "",
+                residuo: 0,
                 historial: [],
-                resultado: ""))) {
+                resultado: 0))) {
     on<SetNumeroEvent>((event, emit) {
       PrepararOperacion pr = PrepararOperacion(
+          point: state.calculadora.point,
           endOperation: false,
           numerador: state.calculadora.numerador,
           multiplicador: state.calculadora.multiplicador,
           op: state.calculadora.operador,
           resultado: state.calculadora.resultado);
-
-      pr.modifyValues(setevent: event);
+      //pr.modifyValues(setevent: event);
+      pr.addNumero(event.valor);
       //pr.modifyValues(TipoOperador.add);
       emit(CalculatorInitialState(
           lc: state.calculadora.copyWith(
@@ -38,6 +42,7 @@ class AddnumeroBloc extends Bloc<AddnumeroEvent, AddnumeroState> {
     on<DefinirOperacion>((event, emit) {
       PrepararOperacion pr = PrepararOperacion(
           endOperation: false,
+          point: state.calculadora.point,
           numerador: state.calculadora.numerador,
           multiplicador: state.calculadora.multiplicador,
           op: state.calculadora.operador,
@@ -55,10 +60,11 @@ class AddnumeroBloc extends Bloc<AddnumeroEvent, AddnumeroState> {
     on<DeleteElemetEvent>((event, emit) {
       PrepararOperacion pr = PrepararOperacion(
           endOperation: false,
-          numerador: state.calculadora.numerador,
-          multiplicador: state.calculadora.multiplicador,
+          point: state.calculadora.point,
+          numerador: state.calculadora.numerador!,
+          multiplicador: state.calculadora.multiplicador!,
           op: state.calculadora.operador,
-          resultado: state.calculadora.resultado);
+          resultado: state.calculadora.resultado!);
       pr.deleteElementOperation();
 
       emit(CalculatorInitialState(
@@ -71,11 +77,11 @@ class AddnumeroBloc extends Bloc<AddnumeroEvent, AddnumeroState> {
     on<RealizarOperacion>((event, emit) {
       PrepararOperacion pr = PrepararOperacion(
           endOperation: true,
-          numerador: state.calculadora.numerador,
+          point: state.calculadora.point,
+          numerador: state.calculadora.numerador!,
           multiplicador: state.calculadora.multiplicador,
           op: state.calculadora.operador,
-          resultado: state.calculadora.resultado);
-      pr.modifyValues();
+          resultado: state.calculadora.resultado!);
       emit(CalculatorInitialState(
           lc: state.calculadora.copyWith(
               numerador: pr.numerador,
@@ -86,13 +92,13 @@ class AddnumeroBloc extends Bloc<AddnumeroEvent, AddnumeroState> {
     on<DeleteNumeroEvent>((event, emit) {
       emit(CalculatorInitialState(
           lc: Calculadora(
-              multiplicador: "",
-              numerador: "",
-              operacionVisual: "",
+              multiplicador: 0,
+              numerador: 0,
+              operacionVisual: null,
               operador: TipoOperador.add,
-              residuo: "",
+              residuo: 0,
               historial: [],
-              resultado: "")));
+              resultado: 0)));
     });
   }
 }

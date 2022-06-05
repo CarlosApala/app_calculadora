@@ -16,7 +16,7 @@ class HistorialCalculadora extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 20, bottom: 5),
                 alignment: Alignment.centerRight,
                 child: Text(
-                  e,
+                  e.toString(),
                   style: const TextStyle(
                       fontSize: 20, color: Color.fromRGBO(255, 255, 255, 0.4)),
                 ),
