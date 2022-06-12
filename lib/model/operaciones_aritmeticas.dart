@@ -1,14 +1,15 @@
 import 'package:app_calculadora/bloc/addnumero_bloc.dart';
 import 'package:app_calculadora/helpers/presicion_numeros.dart';
+import 'package:app_calculadora/model/calculadora.dart';
 
 abstract class OperacionesAritmeticas {
   OperacionesAritmeticas();
 
   PrecisionNumeros precisionNumeros = PrecisionNumeros(precision: 7);
 
-  void addNumero(double numero);
+  void addNumero(String numero);
   void deleteElementOperation();
-  void modifyValues({required DefinirOperacion? definir});
+  void modifyValues({required TipoOperador? definir});
 
   double suma(double numerador, double multiplicador) {
     return numerador + multiplicador;

@@ -25,7 +25,7 @@ class TecladoCalculadora extends StatelessWidget {
                 BotonCalculador(
                     numero: "BORRAR",
                     evento: DeleteNumeroEvent(),
-                    style: TextStyle(color: Colors.orange)),
+                    style: const TextStyle(color: Colors.orange)),
                 const BotonCalculador(numero: "+/-"),
                 const BotonCalculador(numero: "°/."),
                 BotonCalculador(
@@ -40,15 +40,15 @@ class TecladoCalculadora extends StatelessWidget {
               children: [
                 BotonCalculador(
                   numero: "7",
-                  evento: SetNumeroEvent(valor: 7),
+                  evento: SetNumeroEvent(valor: "7"),
                 ),
                 BotonCalculador(
                   numero: "8",
-                  evento: SetNumeroEvent(valor: 8),
+                  evento: SetNumeroEvent(valor: "8"),
                 ),
                 BotonCalculador(
                   numero: "9",
-                  evento: SetNumeroEvent(valor: 9),
+                  evento: SetNumeroEvent(valor: "9"),
                 ),
                 BotonCalculador(
                   numero: "mult",
@@ -61,15 +61,15 @@ class TecladoCalculadora extends StatelessWidget {
               children: [
                 BotonCalculador(
                   numero: "4",
-                  evento: SetNumeroEvent(valor: 4),
+                  evento: SetNumeroEvent(valor: "4"),
                 ),
                 BotonCalculador(
                   numero: "5",
-                  evento: SetNumeroEvent(valor: 5),
+                  evento: SetNumeroEvent(valor: "5"),
                 ),
                 BotonCalculador(
                   numero: "6",
-                  evento: SetNumeroEvent(valor: 6),
+                  evento: SetNumeroEvent(valor: "6"),
                 ),
                 BotonCalculador(
                     numero: "rest",
@@ -81,15 +81,15 @@ class TecladoCalculadora extends StatelessWidget {
               children: [
                 BotonCalculador(
                   numero: "1",
-                  evento: SetNumeroEvent(valor: 1),
+                  evento: SetNumeroEvent(valor: "1"),
                 ),
                 BotonCalculador(
                   numero: "2",
-                  evento: SetNumeroEvent(valor: 2),
+                  evento: SetNumeroEvent(valor: "2"),
                 ),
                 BotonCalculador(
                   numero: "3",
-                  evento: SetNumeroEvent(valor: 3),
+                  evento: SetNumeroEvent(valor: "3"),
                 ),
                 BotonCalculador(
                     numero: "suma",
@@ -105,7 +105,7 @@ class TecladoCalculadora extends StatelessWidget {
                 ),
                 BotonCalculador(
                   numero: "0",
-                  evento: SetNumeroEvent(valor: 0),
+                  evento: SetNumeroEvent(valor: "0"),
                 ),
                 BotonCalculador(
                   icono: const Icon(Icons.backspace_outlined),
@@ -113,7 +113,7 @@ class TecladoCalculadora extends StatelessWidget {
                 ),
                 BotonCalculador(
                   numero: "=",
-                  evento: DefinirOperacion(operador: TipoOperador.igual),
+                  evento: RealizarOperacion(),
                   style: const TextStyle(fontSize: 28),
                 ),
               ],

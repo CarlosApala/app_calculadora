@@ -46,26 +46,8 @@ class PrepararOperacion extends OperacionesAritmeticas {
   }
 
   @override
-  void modifyValues({required DefinirOperacion? definir}) {
-    if (definir != null) {
-      if (point == false && definir.operador == TipoOperador.point) {
-        point = true;
-      }
-      if (definir.operador == TipoOperador.igual) {
-        resultado = _operacion();
-        multiplicador = 0;
-        numerador = 0;
-        op = TipoOperador.add;
-        return;
-      }
-      if (op != TipoOperador.add && definir.operador != TipoOperador.add) {
-        resultado = _operacion();
-        multiplicador = resultado;
-        numerador = 0;
-        op = definir.operador;
-        return;
-      }
-      if (op == TipoOperador.add &&
+  void modifyValues({required TipoOperador? definir}) {
+    /* if (op == TipoOperador.add &&
           (definir.operador == TipoOperador.divi ||
               definir.operador == TipoOperador.suma ||
               definir.operador == TipoOperador.resta ||
@@ -83,31 +65,11 @@ class PrepararOperacion extends OperacionesAritmeticas {
       if (definir.operador == TipoOperador.resta && numerador == 0.0) {
         return;
       }
-    }
+    } */
   }
 
   @override
-  void addNumero(double numero) {
-    if (point == false) {
-      if (numerador == null) {
-        numerador = numero * 1;
-        return;
-      }
-      if (numerador != null) {
-        numerador = (numerador! * 10) + numero;
-        return;
-      }
-    } else if (point == true) {}
-    /* if (resultado != "" &&
-        multiplicador != "" &&
-        numerador != "" &&
-        op != TipoOperador.add) {
-      multiplicador = "";
-      numerador = "";
-      op = TipoOperador.add;
-    }
-    numerador = numerador! + numero; */
-  }
+  void addNumero(String numero) {}
 
   @override
   void deleteElementOperation() {

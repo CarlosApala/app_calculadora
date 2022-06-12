@@ -51,4 +51,6 @@ class PurifcarDouble {
     print(ds.substring(2, 3));
     print(kf + kl);
   }
+
+  void sumar(String numero, String mult) {}
 }
