@@ -25,7 +25,7 @@ class BotonCalculador extends StatelessWidget {
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24))),
               backgroundColor: MaterialStateProperty.resolveWith(
-                  (states) => Color.fromRGBO(46, 47, 56, 1)),
+                  (states) => Color.fromRGBO(5, 21, 30, 0.1)),
               padding: MaterialStateProperty.resolveWith(
                   (states) => const EdgeInsets.all(10))),
           onPressed: evento == null

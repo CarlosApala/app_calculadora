@@ -5,10 +5,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: Colors.blue, // navigation bar color
-    statusBarColor: Colors.orange[300], // status bar color
-  ));
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.blue, // navigation bar color
+      statusBarColor: Color.fromRGBO(05, 21, 30, 1),
+      systemNavigationBarContrastEnforced: true,
+      systemNavigationBarDividerColor: Color.fromRGBO(05, 21, 30, 1)
+
+      //Colors.orange[300], // status bar color
+      ));
   runApp(const MyApp());
 }
 
@@ -26,7 +30,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: const HomePage()),
+          home: HomePage()),
     );
   }
 }

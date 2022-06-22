@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/addnumero_bloc.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
         builder: (_, state) {
           return SafeArea(
             child: Column(
-              children: const [
+              children: [
                 HistorialCalculadora(),
                 OperacionCalculadora(),
                 ResultadoCalculadora(),

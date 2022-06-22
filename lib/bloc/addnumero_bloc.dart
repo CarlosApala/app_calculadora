@@ -27,8 +27,6 @@ class AddnumeroBloc extends Bloc<AddnumeroEvent, AddnumeroState> {
                   double.parse(state.calculadora.multiplicador!))
               .toString()
           : "";
-      print(state.calculadora.operador);
-      print(num);
       emit(CalculatorInitialState(
           lc: state.calculadora
               .copyWith(numerador: num, resultado: operacion)));
@@ -44,8 +42,6 @@ class AddnumeroBloc extends Bloc<AddnumeroEvent, AddnumeroState> {
                       : double.parse("0.0"),
                   double.parse(state.calculadora.resultado!))
               .toString();
-      print(operacion);
-      print(event.operador);
       if (operacion == "") {
         emit(CalculatorInitialState(
             lc: state.calculadora.copyWith(

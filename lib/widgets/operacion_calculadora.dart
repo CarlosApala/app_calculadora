@@ -11,7 +11,7 @@ class OperacionCalculadora extends StatelessWidget {
     return BlocBuilder<AddnumeroBloc, AddnumeroState>(builder: (_, state) {
       return Container(
         height: 40,
-        color: Color.fromRGBO(23, 23, 28, 1),
+        color: Color.fromARGB(255, 8, 33, 48),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

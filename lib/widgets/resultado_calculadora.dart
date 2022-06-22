@@ -9,7 +9,7 @@ class ResultadoCalculadora extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AddnumeroBloc, AddnumeroState>(builder: (_, state) {
       return Container(
-        color: Color.fromRGBO(23, 23, 28, 1),
+        color: Color.fromARGB(255, 8, 33, 48),
         alignment: Alignment.centerRight,
         child: Text(
           "= ${state.calculadora.resultado}",
