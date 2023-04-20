@@ -40,7 +40,7 @@ class BotonCalculador extends StatelessWidget {
           child: numero != ""
               ? Text(
                   numero!,
-                  style: style,
+                  style: style ?? const TextStyle(fontSize: 30),
                 )
               : icono),
       //const Icon(Icons.backspace_outlined)),

@@ -23,13 +23,20 @@ class TecladoCalculadora extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 BotonCalculador(
-                    numero: "BORRAR",
+                    icono: Icon(Icons.delete),
                     evento: DeleteNumeroEvent(),
                     style: const TextStyle(color: Colors.orange)),
-                const BotonCalculador(numero: "+/-"),
-                const BotonCalculador(numero: "°/."),
+                const BotonCalculador(
+                  numero: "+/-",
+                  style: TextStyle(fontSize: 25),
+                ),
+                const BotonCalculador(
+                  numero: "%",
+                  style: TextStyle(fontSize: 25),
+                ),
                 BotonCalculador(
-                  numero: "div",
+                  numero: "/",
+                  style: TextStyle(fontSize: 25),
                   evento: DefinirOperacion(operador: TipoOperador.divi),
                 ),
               ],
@@ -51,7 +58,8 @@ class TecladoCalculadora extends StatelessWidget {
                   evento: SetNumeroEvent(valor: "9"),
                 ),
                 BotonCalculador(
-                  numero: "mult",
+                  numero: "x",
+                  style: TextStyle(fontSize: 30),
                   evento: DefinirOperacion(operador: TipoOperador.multi),
                 ),
               ],
@@ -72,8 +80,10 @@ class TecladoCalculadora extends StatelessWidget {
                   evento: SetNumeroEvent(valor: "6"),
                 ),
                 BotonCalculador(
-                    numero: "rest",
-                    evento: DefinirOperacion(operador: TipoOperador.resta)),
+                  numero: "-",
+                  evento: DefinirOperacion(operador: TipoOperador.resta),
+                  style: TextStyle(fontSize: 50),
+                ),
               ],
             ),
             Row(
@@ -92,7 +102,8 @@ class TecladoCalculadora extends StatelessWidget {
                   evento: SetNumeroEvent(valor: "3"),
                 ),
                 BotonCalculador(
-                    numero: "suma",
+                    numero: "+",
+                    style: TextStyle(fontSize: 40),
                     evento: DefinirOperacion(operador: TipoOperador.suma))
               ],
             ),
